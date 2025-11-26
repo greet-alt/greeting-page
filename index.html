@@ -3,29 +3,56 @@
 <head>
 <meta charset="UTF-8" />
 <title>Merry Christmas!</title>
+<!-- Include Google Font for the different font style -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <style>
     body {
         margin: 0;
         padding: 0;
-        /* Replace with a festive Thanksgiving/Christmas background image */
-        background-image: url('https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+        /* Background image for Thanksgiving and Christmas */
+        background-image: url('https://images.unsplash.com/photo-1604757844840-ec59a6b1e5a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         font-family: Arial, sans-serif;
         text-align: center;
         overflow: hidden;
+        /* Overlay to darken background for readability */
+        position: relative;
+    }
+    /* Dark overlay to make text stand out */
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 0;
+    }
+    /* Main content container */
+    .content {
+        position: relative;
+        z-index: 1;
+        padding: 50px 20px;
+        color: #fff;
     }
     h1 {
         font-size: 3em;
-        color: #b22222;
-        margin-top: 50px;
+        margin-top: 0;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
+    /* Emojis in next line */
+    .emojis {
+        font-size: 2em;
+        margin-top: 20px;
+    }
+    /* Style for the ~JPG text with different font */
     p {
+        font-family: 'Pacifico', cursive;
         font-size: 1.5em;
         color: #fff;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        margin-top: 20px;
     }
     /* Snow effect canvas styling */
     .snow {
@@ -41,14 +68,18 @@
 </style>
 </head>
 <body>
-<h1>Happy Thanks Giving & Merry Christmas! 🦃🍂🦖🔔🎁✝️</h1>
-<p>~JPG</p>
+<div class="content">
+  <h1>Happy Thanks Giving & Merry Christmas!</h1>
+  <!-- Emojis on the next line -->
+  <div class="emojis">🦃🍂🦖🔔🎁✝️🎉</div>
+  <p>~JPG</p>
+</div>
 
 <!-- Snow effect -->
 <canvas id="snowCanvas" class="snow"></canvas>
 
 <script>
-    // Simple falling snow effect
+    // Snow effect script
     const canvas = document.getElementById('snowCanvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
